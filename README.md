@@ -85,3 +85,4 @@
 * [Отчёт по итогам тестирования](txt%2FReport.md)
 * [Отчёт по итогам автоматизации](txt%2FSummary.md)
 
+[![Build status](https://ci.appveyor.com/api/projects/status/821ooo9ralf6v0gv?svg=true)](https://ci.appveyor.com/project/Gena800/diplom-netology)
