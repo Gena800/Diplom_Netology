@@ -102,4 +102,29 @@ public class DbHelper {
         }
         return orderCount;
     }
+    @SneakyThrows
+    public static long getOrderCountCreditId() {
+        val count = "SELECT COUNT(credit_id)  FROM order_entity;";
+        val runner = new QueryRunner();
+        long orderCount;
+
+        try (var connection = getConnection();
+        ) {
+            orderCount = runner.query(connection, count, new ScalarHandler<>());
+        }
+        return orderCount;
+    }
+    @SneakyThrows
+    public static long getOrderCountPaymentId() {
+        val count = "SELECT COUNT(payment_id)  FROM order_entity;";
+        val runner = new QueryRunner();
+        long orderCount;
+
+        try (var connection = getConnection();
+        ) {
+            orderCount = runner.query(connection, count, new ScalarHandler<>());
+        }
+        return orderCount;
+    }
+
 }

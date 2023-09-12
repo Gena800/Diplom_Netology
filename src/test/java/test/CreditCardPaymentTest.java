@@ -431,4 +431,15 @@ class CreditCardPaymentTest {
         assertEquals(0, DbHelper.getOrderCount());
         assertEquals(0, DbHelper.getCreditCount());
     }
+    @Test
+    @DisplayName("39.Покупка тура при вводе данных карты со статусом APPROVED Order_entity credit_id")
+    public void shouldApprovedCardAndCheckDbOrder() {
+        cardPage.cardData(DataHelper.getApprovedCard());
+        cardPage.notificationOk();
+
+        assertEquals("APPROVED", DbHelper.getCreditStatusDB());
+        assertEquals(1, DbHelper.getOrderCountCreditId());
+        assertEquals(0, DbHelper.getOrderCountPaymentId());
+        assertEquals(1, DbHelper.getCreditCount());
+    }
 }
