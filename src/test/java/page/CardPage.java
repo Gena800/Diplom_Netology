@@ -38,11 +38,11 @@ public class CardPage {
 
     public void allFieldsWithErrors() {
         continueButton.shouldBe(visible).click();
-        cardNumberFieldError.shouldHave(text("Неверный формат")).shouldBe(visible, Duration.ofSeconds(6));
-        monthFieldError.shouldHave(text("Неверный формат")).shouldBe(visible, Duration.ofSeconds(6));
-        yearFieldError.shouldHave(text("Неверный формат")).shouldBe(visible, Duration.ofSeconds(6));
-        ownerFieldError.shouldHave(text("Поле обязательно для заполнения")).shouldBe(visible, Duration.ofSeconds(6));
-        cvcFieldError.shouldHave(text("Неверный формат")).shouldBe(visible, Duration.ofSeconds(6));
+        cardNumberFieldError.shouldHave(text("Неверный формат")).shouldBe(visible);
+        monthFieldError.shouldHave(text("Неверный формат")).shouldBe(visible);
+        yearFieldError.shouldHave(text("Неверный формат")).shouldBe(visible);
+        ownerFieldError.shouldHave(text("Поле обязательно для заполнения")).shouldBe(visible);
+        cvcFieldError.shouldHave(text("Неверный формат")).shouldBe(visible);
     }
 
     public void notificationOk() {
@@ -59,42 +59,42 @@ public class CardPage {
 
     public void invalidFormatCardNumberField() {
 
-        cardNumberFieldError.shouldHave(text("Неверный формат")).shouldBe(visible, Duration.ofSeconds(6));
+        cardNumberFieldError.shouldHave(text("Неверный формат")).shouldBe(visible);
     }
 
     public void invalidFormatMonthField() {
-        monthFieldError.shouldHave(text("Неверный формат")).shouldBe(visible, Duration.ofSeconds(6));
+        monthFieldError.shouldHave(text("Неверный формат")).shouldBe(visible);
     }
 
     public void invalidCardExpirationDateMonth() {
-        monthFieldError.shouldHave(text("Неверно указан срок действия карты")).shouldBe(visible, Duration.ofSeconds(6));
+        monthFieldError.shouldHave(text("Неверно указан срок действия карты")).shouldBe(visible);
     }
 
     public void invalidFormatYearField() {
-        yearFieldError.shouldHave(text("Неверный формат")).shouldBe(visible, Duration.ofSeconds(6));
+        yearFieldError.shouldHave(text("Неверный формат")).shouldBe(visible);
     }
 
     public void invalidFormatCardExpired() {
-        yearFieldError.shouldHave(text("Истёк срок действия карты")).shouldBe(visible, Duration.ofSeconds(6));
+        yearFieldError.shouldHave(text("Истёк срок действия карты")).shouldBe(visible);
     }
 
     public void invalidCardExpirationDateYear() {
-        yearFieldError.shouldHave(text("Неверно указан срок действия карты")).shouldBe(visible, Duration.ofSeconds(6));
+        yearFieldError.shouldHave(text("Неверно указан срок действия карты")).shouldBe(visible);
     }
 
     public void invalidFormatRequiredOwnerField() {
-        ownerFieldError.shouldHave(text("Поле обязательно для заполнения")).shouldBe(visible, Duration.ofSeconds(6));
+        ownerFieldError.shouldHave(text("Поле обязательно для заполнения")).shouldBe(visible);
     }
 
     public void invalidFormatOwnerField() {
-        ownerFieldError.shouldHave(text("Неверный формат")).shouldBe(visible, Duration.ofSeconds(10));
+        ownerFieldError.shouldHave(text("Неверный формат")).shouldBe(visible);
     }
 
     public void invalidFormatOwnerFieldValueMustContainMoreThanOneLetter() {
-        ownerFieldError.shouldHave(text("Значение поля должно содержать больше одной буквы")).shouldBe(visible, Duration.ofSeconds(6));
+        ownerFieldError.shouldHave(text("Значение поля должно содержать больше одной буквы")).shouldBe(visible);
     }
 
     public void invalidFormatCVCField() {
-        cvcFieldError.shouldHave(text("Неверный формат")).shouldBe(visible, Duration.ofSeconds(6));
+        cvcFieldError.shouldHave(text("Неверный формат")).shouldBe(visible);
     }
 }

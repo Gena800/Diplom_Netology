@@ -1,5 +1,8 @@
 # Дипломный проект по профессии «Тестировщик».
 
+[![Build status](https://ci.appveyor.com/api/projects/status/821ooo9ralf6v0gv?svg=true)](https://ci.appveyor.com/project/Gena800/diplom-netology)
+
+
 ***
 
 ## О проекте
@@ -13,6 +16,13 @@
 
 
 [*Ссылка на полное описание требований к дипломному проекту](https://github.com/netology-code/qa-diploma)
+
+### Отчетная документация
+
+* [План автоматизации тестирования](txt%2FPlan.md)
+* [Отчёт по итогам тестирования](txt%2FReport.md)
+* [Отчёт по итогам автоматизации](txt%2FSummary.md)
+
 
 ### Инструменты необходимые для настройки среды тестирования
 
@@ -79,10 +89,3 @@
 
 * по окончании формирования отчет откроется в браузере автоматически
 
-### Отчетная документация
-
-* [План автоматизации тестирования](txt%2FPlan.md)
-* [Отчёт по итогам тестирования](txt%2FReport.md)
-* [Отчёт по итогам автоматизации](txt%2FSummary.md)
-
-[![Build status](https://ci.appveyor.com/api/projects/status/821ooo9ralf6v0gv?svg=true)](https://ci.appveyor.com/project/Gena800/diplom-netology)

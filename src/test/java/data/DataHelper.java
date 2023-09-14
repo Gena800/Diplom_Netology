@@ -21,24 +21,12 @@ public class DataHelper {
         return "4444 4444 4444 4442";
     }
 
-    public static String getMonthFaker(int plusMonth) {
-        return LocalDate.now().plusMonths(plusMonth).format(DateTimeFormatter.ofPattern("MM"));
+    public static String getMonthFaker(int month) {
+        return LocalDate.now().plusMonths(month).format(DateTimeFormatter.ofPattern("MM"));
     }
 
-    public static String generateMinusMonth(int minusMonth, String formatPattern) {
-        return LocalDate.now().minusMonths(minusMonth).format(DateTimeFormatter.ofPattern(formatPattern));
-    }
-
-    public static String getYearFaker(int plusYear) {
-        return LocalDate.now().plusYears(plusYear).format(DateTimeFormatter.ofPattern("yy"));
-    }
-
-    public static String generateDateMinusYears(int minusYears, String formatPattern) {
-        return LocalDate.now().minusYears(minusYears).format(DateTimeFormatter.ofPattern(formatPattern));
-    }
-
-    public static String generateDatePlusYears(int plusYears, String formatPattern) {
-        return LocalDate.now().plusYears(plusYears).format(DateTimeFormatter.ofPattern(formatPattern));
+    public static String getYearFaker(int year) {
+        return LocalDate.now().plusYears(year).format(DateTimeFormatter.ofPattern("yy"));
     }
 
     public static String getOwnerFakerEng() {
@@ -80,12 +68,12 @@ public class DataHelper {
 
     //Карта со статусом Approved
     public static CardInfoData getApprovedCard() {
-        return new CardInfoData(getApprovedNumber(), getMonthFaker(0), getYearFaker(1), "Petr Obromovich", "888");
+        return new CardInfoData(getApprovedNumber(), getMonthFaker(0), getYearFaker(5), "Petr Obromovich", "888");
     }
 
     //Карта со статусом Declined
     public static CardInfoData getDeclinedCard() {
-        return new CardInfoData(getDeclinedNumber(), getMonthFaker(0),getYearFaker(1), "Ivan Petrenko", "123");
+        return new CardInfoData(getDeclinedNumber(), getMonthFaker(0), getYearFaker(1), "Ivan Petrenko", "123");
     }
 
     //Все поля пусты
@@ -161,7 +149,7 @@ public class DataHelper {
 
     //Заполнить поле прошлым месяцем текущего года
     public static CardInfoData getFieldMonthPreviousThisYear() {
-        return new CardInfoData(getApprovedNumber(), generateMinusMonth(1, "MM"), "23", getOwnerFakerEng(), getCVCFaker());
+        return new CardInfoData(getApprovedNumber(), getMonthFaker(-1), getYearFaker(0), getOwnerFakerEng(), getCVCFaker());
     }
 
     //Заполнить поле нулевым значением
@@ -203,12 +191,12 @@ public class DataHelper {
 
     //Заполнить поле значением предыдущего года
     public static CardInfoData getYearBeforeCurrent() {
-        return new CardInfoData(getApprovedNumber(), getMonthFaker(0), generateDateMinusYears(1, "yy"), getOwnerFakerEng(), getCVCFaker());
+        return new CardInfoData(getApprovedNumber(), getMonthFaker(0), getYearFaker(-1), getOwnerFakerEng(), getCVCFaker());
     }
 
     //Заполнить поле значением отстоящим от текущего более чем на 6 лет
     public static CardInfoData getExceeds6YearsField() {
-        return new CardInfoData(getApprovedNumber(), getMonthFaker(0), generateDatePlusYears(7, "yy"), getOwnerFakerEng(), getCVCFaker());
+        return new CardInfoData(getApprovedNumber(), getMonthFaker(0), getYearFaker(7), getOwnerFakerEng(), getCVCFaker());
     }
 
 

@@ -1,7 +1,6 @@
 package data;
 
 import lombok.SneakyThrows;
-import lombok.val;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 
@@ -31,15 +30,13 @@ public class DbHelper {
             runner.update(connection, payment);
             runner.update(connection, credit);
             runner.update(connection, order);
-        } catch (SQLException e) {
-            System.out.println("Таблицы payment_entity, credit_request_entity, order_entity очищены");
         }
     }
 
     @SneakyThrows
     public static String getCreditStatusDB() {
-        val status = "SELECT status FROM credit_request_entity;";
-        val runner = new QueryRunner();
+        var status = "SELECT status FROM credit_request_entity ORDER BY created DESC LIMIT 1;";
+        var runner = new QueryRunner();
         String creditStatus;
 
         try (var connection = getConnection();
@@ -51,8 +48,8 @@ public class DbHelper {
 
     @SneakyThrows
     public static String getPaymentStatusDB() {
-        val status = "SELECT status FROM payment_entity;";
-        val runner = new QueryRunner();
+        var status = "SELECT status FROM payment_entity ORDER BY created DESC LIMIT 1;";
+        var runner = new QueryRunner();
         String payStatus;
 
         try (var connection = getConnection();
@@ -65,8 +62,8 @@ public class DbHelper {
 
     @SneakyThrows
     public static long getPaymentCount() {
-        val count = "SELECT COUNT(id) as count FROM payment_entity;";
-        val runner = new QueryRunner();
+        var count = "SELECT COUNT(id) as count FROM payment_entity;";
+        var runner = new QueryRunner();
         long payCount;
 
         try (
@@ -79,8 +76,8 @@ public class DbHelper {
 
     @SneakyThrows
     public static long getCreditCount() {
-        val count = "SELECT COUNT(id) as count FROM credit_request_entity;";
-        val runner = new QueryRunner();
+        var count = "SELECT COUNT(id) as count FROM credit_request_entity;";
+        var runner = new QueryRunner();
         long creditCount;
 
         try (var connection = getConnection();
@@ -92,8 +89,8 @@ public class DbHelper {
 
     @SneakyThrows
     public static long getOrderCount() {
-        val count = "SELECT COUNT(id) as count FROM order_entity;";
-        val runner = new QueryRunner();
+        var count = "SELECT COUNT(*) FROM order_entity;";
+        var runner = new QueryRunner();
         long orderCount;
 
         try (var connection = getConnection();
@@ -102,10 +99,11 @@ public class DbHelper {
         }
         return orderCount;
     }
+
     @SneakyThrows
     public static long getOrderCountCreditId() {
-        val count = "SELECT COUNT(credit_id)  FROM order_entity;";
-        val runner = new QueryRunner();
+        var count = "SELECT COUNT(credit_id)  FROM order_entity;";
+        var runner = new QueryRunner();
         long orderCount;
 
         try (var connection = getConnection();
@@ -114,10 +112,11 @@ public class DbHelper {
         }
         return orderCount;
     }
+
     @SneakyThrows
     public static long getOrderCountPaymentId() {
-        val count = "SELECT COUNT(payment_id)  FROM order_entity;";
-        val runner = new QueryRunner();
+        var count = "SELECT COUNT(payment_id)  FROM order_entity;";
+        var runner = new QueryRunner();
         long orderCount;
 
         try (var connection = getConnection();
