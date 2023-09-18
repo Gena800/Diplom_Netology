@@ -6,14 +6,15 @@ import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
+
 
 public class DbHelper {
 
     private DbHelper() {
     }
 
-    public static Connection getConnection() throws SQLException {
+    @SneakyThrows
+    public static Connection getConnection() {
         var dbUrl = System.getProperty("db.url");
         var dbUserName = System.getProperty("db.user");
         var dbPassword = System.getProperty("db.pass");
@@ -26,7 +27,8 @@ public class DbHelper {
         var credit = "DELETE FROM credit_request_entity;";
         var order = "DELETE FROM order_entity;";
         var runner = new QueryRunner();
-        try (var connection = getConnection();) {
+        try (var connection = getConnection();
+        ) {
             runner.update(connection, payment);
             runner.update(connection, credit);
             runner.update(connection, order);
